@@ -261,16 +261,19 @@ button:hover{
 .completed{
     background-color: #e7e7e7;
     color: #c4cbc3;
+    text-decoration: line-through;
 }
 
 .task.completed{
     background-color: #e7e7e7;
     color: #c4cbc3;
+    text-decoration: line-through;
 }
 
 .description.completed{
     background-color: #e7e7e7;
         color: #c4cbc3;
+        text-decoration: line-through;
 }
 
 .due-date.completed{
@@ -281,6 +284,7 @@ button:hover{
 .circle.completed{
     border: solid 3px rgba(140, 140, 140, 0.25);
     background-color: #ababab77;
+    
 }
 
 .reminder.completed{
