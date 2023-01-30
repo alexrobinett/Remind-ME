@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <div class="logo">
+                <span class="">REMIND ME</span>
+                <img class="logo-img" src="/src/icons/calendar-check-outline.svg" alt="">
+            </div>
+        </section> 
+    </header>
+    <aside>
+       <section class="inbox-container">
+        <div class="inbox">
+            <img src="/src/icons/inbox.svg" alt="">
+            <span>Inbox</span>
+        </div>
+       </section>
+       <section class="projects-container">
+        <div class="projects">
+            <h2>Projects</h2>
+            <div class="button"><span class="plus">+</span></div>
+        </div>
+        <div class="project-list">
+            <ul>
+                <li class="nav-item project">
+                    <img src="/src/icons/format-list-bulleted.svg" alt="">
+                    <span>Work Test</span>
+                </li>
+                <li class="nav-item project">
+                    <img src="/src/icons/format-list-bulleted.svg" alt="">
+                    <span>Fake List</span>
+                </li>
+                <li class="nav-item project">
+                    <img src="/src/icons/format-list-bulleted.svg" alt="">
+                    <span>GSDK</span>
+                </li>
+            </ul>
+        </div>
+       </section>
+    </aside>
+    <section class="main">
+        <div class="project-container">
+            <div class="project-title">
+                <h1>Inbox</h1>
+                <button>+ Add Task</button>
+            </div>
+            <div class="reminder-container">
+                <div class="reminder">
+                    <div class="circle low"></div>
+                    <span class="task">Hello</span>
+                    <span class="description">This is the shit we need to do</span>
+                    <div class="right-side">
+                        <span class="due-date"> FEB 16 2013</span>
+                        <img class="edit" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete" src="/src/icons/trash-can-outline.svg" alt="trash">
+                    </div>
+                </div>
+                <div class="reminder">
+                    <div class="circle medium"></div>
+                    <span class="task">Remind</span>
+                    <span class="description">This is the shit we need to do</span>
+                    <div class="right-side">
+                        <span class="due-date"> FEB 16 2023</span>
+                        <img class="edit" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete" src="/src/icons/trash-can-outline.svg" alt="trash">
+                    </div>
+                </div>
+                <div class="reminder">
+                    <div class="circle high"></div>
+                    <span class="task">Me</span>
+                    <span class="description">This is the shit we need to do</span>
+                    <div class="right-side">
+                        <span class="due-date"> FEB 16 2033</span>
+                        <img class="edit" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete" src="/src/icons/trash-can-outline.svg" alt="trash">
+                    </div>
+                </div>
+              
+            </div>
+            <div class="project-completed">
+                <h1>Completed</h1>
+                <button>Remove</button>
+            </div>
+            <div class="reminder-container">
+                <div class="reminder completed">
+                    <div class="circle completed"></div>
+                    <span class="task completed">Hello</span>
+                    <span class="description completed">This is the shit we need to do</span>
+                    <div class="right-side">
+                        <span class="due-date completed"> FEB 16 2013</span>
+                        <img class="edit completed-icon" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete completed-icon" src="/src/icons/trash-can-outline.svg" alt="trash">
+                    </div>
+                </div>
+        </div>
+    </section>
+</body>
+</html>
