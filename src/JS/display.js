@@ -10,6 +10,8 @@ closeReminderBTN.addEventListener("click", function toggleModal(e){
   inputForm.classList.add("hidden")
 })
 
-
+function renderReminders(){
+    console.log("I Have rendered them")
+}
 
 export{addReminderBTN, closeReminderBTN }
