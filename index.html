@@ -50,7 +50,7 @@
         <div class="project-container">
             <div class="project-title">
                 <h1>Inbox</h1>
-                <button>+ Add Task</button>
+                <button class="add-reminder">+ Add Reminder</button>
             </div>
             <div class="reminder-container">
                 <div class="reminder">
@@ -102,6 +102,44 @@
                 </div>
         </div>
     </section>
+    <div class="modal ">
+        <section class="modal-container">
+            <div class="testbox">
+                <form action="/">
+                  <div class="banner">
+                    <h1>Reminder</h1>
+                    <div class="circle close-button">X</div>
+                  </div>
+                  <div class="item">
+                    <p>Title</p>
+                    <div class="name-item">
+                      <input type="text" name="name" placeholder="Remind" />
+                    </div>
+                    <div class="item">
+                        <p>Description</p>
+                    <textarea name="" id="" cols="" rows=""></textarea>
+                    </div>
+                    <select>
+                        <option value="">Priority</option>
+                        <option value="1">low</option>
+                        <option value="2">medium</option>
+                        <option value="3">high</option>
+                    </select>
+                  </div>
+                  <div class="item">
+                    <p>Due Date</p>
+                    <input type="date" name="bdate" />
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <div class="item">
+                  </div>
+                  <div class="btn-block">
+                    <button type="submit" href="/">Create</button>
+                 </div>
+                </form>
+              </div>
+            </section>
+    </div>
     <script src="/dist/main.bundle.js"></script>
 </body>
 </html>
