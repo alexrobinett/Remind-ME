@@ -87,6 +87,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding-bottom: 9px;
+    margin-top: 20px;
     border-bottom: #fff solid 3px;
 }
 
@@ -497,7 +498,5 @@ button:hover {
 }
 
 .active{
-    border-right: solid 4px white;
-    border-top:  solid 2px white ;
-    border-bottom:  solid 2px white ;
+    border-right: solid 4px white;;
 }
