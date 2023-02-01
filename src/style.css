@@ -304,11 +304,11 @@ button:hover{
     border: solid rgb(153, 153, 153) 2px;
 }
 
-.edit.completed-icon{
+.edit-btn.completed-icon{
     filter: invert(100%) sepia(0%) saturate(3395%) hue-rotate(20deg) brightness(125%) contrast(81%)
 }
 
-.delete.completed-icon{
+.delete-btn.completed-icon{
     filter: invert(100%) sepia(0%) saturate(3395%) hue-rotate(20deg) brightness(125%) contrast(81%)
 }
 
@@ -362,12 +362,12 @@ button:hover{
 }
 
 
-.edit:hover , .delete:hover  {
+.edit-btn:hover , .delete-btn:hover  {
      filter: none;
      width: 2.1rem;
 }
 
-.edit , .delete {
+.edit-btn , .delete-btn {
     filter: none;
     width: 2rem;
 }
@@ -384,7 +384,7 @@ button:hover{
 /* Modal */
 
 
-.modal{
+.modal,.modal-update{
     align-self: center;
     justify-self: center;
     grid-row: 1/3;
@@ -494,4 +494,10 @@ button:hover {
 
 .hidden{
     display: none;
+}
+
+.active{
+    border-right: solid 4px white;
+    border-top:  solid 2px white ;
+    border-bottom:  solid 2px white ;
 }
