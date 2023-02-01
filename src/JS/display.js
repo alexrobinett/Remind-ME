@@ -107,6 +107,24 @@ function displayProjectTitle(project){
 }
 
 
+function displayProjectList(project){
+    const projectListContainer = document.querySelector(".project-list-ul")
+
+    const listItem = document.createElement("li");
+    listItem.classList.add("nav-item")
+    listItem.classList.add("project")
+
+    const listImg = document.createElement("img")
+    listImg.src = "/src/icons/format-list-bulleted.svg"
+
+    const projectTitleHolder = document.createElement("span")
+    projectTitleHolder.textContent = `${project}`
+
+    listItem.appendChild(listImg)
+    listItem.appendChild(projectTitleHolder)
+
+    projectListContainer.appendChild(listItem)
+}
 
 
 
@@ -114,4 +132,6 @@ function displayProjectTitle(project){
 
 
 
-export{displayReminders,displayProjectTitle}
+
+
+export{displayReminders,displayProjectTitle,displayProjectList}
