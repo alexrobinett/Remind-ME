@@ -216,7 +216,7 @@ button:hover{
 
 /* reminder */
 
-.reminder-container{
+.reminder-container , .reminder-container-completed{
     display: flex;
     flex-direction: column;
     margin: 10px 0px;

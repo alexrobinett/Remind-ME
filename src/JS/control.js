@@ -1,48 +1,36 @@
+let inbox = []
 
-const inbox = []
-
-
-
+window.inbox = inbox
 
 
 
 const createReminder = (name, description, dueDate, priority, project, isComplete) => {
-    let titleReminder = name;
-    let descriptionReminder = description;
-    let dueDateReminder = dueDate
-    let priorityReminder = priority
-    let projectCategory = project
-    let isCompleted = isComplete
   
 
     function toggleCompleted(){
-        if (this.isCompleted == true){
-            this.isCompleted = false
-        }else if (this.isCompleted == false){
-            this.isCompleted = true
-        }
+        if (this.isComplete == true){
+            this.isComplete = false
+            console.log("toggled false")
+        }else if (this.isComplete == false){
+            this.isComplete = true
+            console.log("toggled true")
+        }else console.log("error soemthing went wrong")
     }
 
-    // function editReminder{
-        
-    // }
-
-    function deleteReminder(){
-        this.delete
+    function addToProject(){
+        inbox.push(this)
     }
-
 
     return {
-      titleReminder,
-      descriptionReminder,
-      dueDateReminder,
-      priorityReminder,
-      projectCategory,
+      name,
+      description,
+      dueDate,
+      priority,
+      project,
       isComplete,
       createReminder,
       toggleCompleted,
-    //   editReminder,
-      deleteReminder
+      addToProject
     };
   };
 
@@ -51,7 +39,16 @@ const testReminder1 = createReminder("feed keni", "give keni dog food", "11/12/2
 
 window.testReminder1 = testReminder1
 
-  export{testReminder1 , createReminder}
+
+const createProject = (name) => {
+    let projectName = name
+  
+
+    return { };
+  };
+
+
+  export{testReminder1 , createReminder, inbox}
   
 
 

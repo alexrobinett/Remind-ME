@@ -1,3 +1,5 @@
+import { inbox } from "./control"
+
 const addReminderBtn = document.querySelector(".add-reminder")
 const inputForm = document.querySelector(".modal")
 const updateForm = document.querySelector(".modal-update")
@@ -18,6 +20,7 @@ function removeDisplay(element){
       }else console.log("error")
 
 }
+
 
 
 function addListeners(){
