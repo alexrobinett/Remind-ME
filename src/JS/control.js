@@ -16,9 +16,9 @@ const createReminder = (name, description, dueDate, priority, project, isComplet
   
 
     function toggleCompleted(){
-        if (this.isCompleted === true){
+        if (this.isCompleted == true){
             this.isCompleted = false
-        }else if (this.isCompleted === false){
+        }else if (this.isCompleted == false){
             this.isCompleted = true
         }
     }
