@@ -18,7 +18,7 @@
     </header>
     <aside>
        <section class="inbox-container">
-        <div class="inbox">
+        <div class="inbox active">
             <img src="/src/icons/inbox.svg" alt="">
             <span>Inbox</span>
         </div>
@@ -59,8 +59,8 @@
                     <span class="description">This is the shit we need to do</span>
                     <div class="right-side">
                         <span class="due-date"> FEB 16 2013</span>
-                        <img class="edit" src="/src/icons/text-box-edit.svg" alt="edit">
-                        <img class="delete" src="/src/icons/trash-can-outline.svg" alt="trash">
+                        <img class="edit-btn" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete-btn" src="/src/icons/trash-can-outline.svg" alt="trash">
                     </div>
                 </div>
                 <div class="reminder">
@@ -69,8 +69,8 @@
                     <span class="description">This is the shit we need to do</span>
                     <div class="right-side">
                         <span class="due-date"> FEB 16 2023</span>
-                        <img class="edit" src="/src/icons/text-box-edit.svg" alt="edit">
-                        <img class="delete" src="/src/icons/trash-can-outline.svg" alt="trash">
+                        <img class="edit-btn" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete-btn" src="/src/icons/trash-can-outline.svg" alt="trash">
                     </div>
                 </div>
                 <div class="reminder">
@@ -79,8 +79,8 @@
                     <span class="description">This is the shit we need to do</span>
                     <div class="right-side">
                         <span class="due-date"> FEB 16 2033</span>
-                        <img class="edit" src="/src/icons/text-box-edit.svg" alt="edit">
-                        <img class="delete" src="/src/icons/trash-can-outline.svg" alt="trash">
+                        <img class="edit-btn" src="/src/icons/text-box-edit.svg" alt="edit">
+                        <img class="delete-btn" src="/src/icons/trash-can-outline.svg" alt="trash">
                     </div>
                 </div>
               
@@ -102,12 +102,12 @@
                 </div>
         </div>
     </section>
-    <div class="modal ">
+    <div class="modal hidden">
         <section class="modal-container">
             <div class="testbox">
                 <form action="/">
                   <div class="banner">
-                    <h1>Reminder</h1>
+                    <h1>Create Reminder</h1>
                     <div class="circle close-button">X</div>
                   </div>
                   <div class="item">
@@ -134,7 +134,45 @@
                   <div class="item">
                   </div>
                   <div class="btn-block">
-                    <button type="submit" href="/">Create</button>
+                    <button id="create-reminder" type="button">Create</button>
+                 </div>
+                </form>
+              </div>
+            </section>
+    </div>
+    <div class="modal-update hidden">
+        <section class="modal-container">
+            <div class="testbox">
+                <form action="/">
+                  <div class="banner">
+                    <h1>Update Reminder</h1>
+                    <div class="circle close-button">X</div>
+                  </div>
+                  <div class="item">
+                    <p>Title</p>
+                    <div class="name-item">
+                      <input type="text" name="name" placeholder="Remind" />
+                    </div>
+                    <div class="item">
+                        <p>Description</p>
+                    <textarea name="" id="" cols="" rows=""></textarea>
+                    </div>
+                    <select>
+                        <option value="">Priority</option>
+                        <option value="1">low</option>
+                        <option value="2">medium</option>
+                        <option value="3">high</option>
+                    </select>
+                  </div>
+                  <div class="item">
+                    <p>Due Date</p>
+                    <input type="date" name="bdate" />
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <div class="item">
+                  </div>
+                  <div class="btn-block">
+                    <button id="update-reminder" type="button">Create</button>
                  </div>
                 </form>
               </div>
