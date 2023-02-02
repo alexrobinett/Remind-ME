@@ -24,5 +24,3 @@ const APP = (function (){
 
 
 addListeners()
-
-

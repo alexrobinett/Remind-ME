@@ -1,41 +1,29 @@
-import { renderRemindersList } from "./display";
+import { renderRemindersList, renderProjectList } from "./display";
+import { addListeners } from "./buttons";
 
 
 const createReminder = (isComplete = false, id) => {
-    
     let reminderTitle = document.getElementById("reminder-title").value
     let reminderDescription = document.getElementById("reminder-description").value
     let reminderPriority = document.getElementById("reminder-priority").value
     let reminderDueDate = document.getElementById("reminder-due-date").value
     let reminderId = Date.now()
 
-    // test Text/
-
-    // reminderDescription = "this is test test"
-    // reminderTitle = "Test Title 123"
-    // reminderPriority = "high"
-    // reminderDueDate = "11-22-33"
-
-    function toggleCompleted(){
-        if (this.isComplete == true){
-            this.isComplete = false
-            console.log("toggled false")
-        }else if (this.isComplete == false){
-            this.isComplete = true
-            console.log("toggled true")
-        }else console.log("error something went wrong")
-    }
+    function toggleCompleted() {
+        this.isComplete = !this.isComplete;
+        console.log("isComplete set to", this.isComplete);
+      }
 
     return {
-      reminderTitle,
-      reminderDescription,
-      reminderDueDate,
-      reminderPriority,
-      isComplete,
-      createReminder,
-      toggleCompleted,
+        reminderTitle,
+        reminderDescription,
+        reminderDueDate,
+        reminderPriority,
+        isComplete,
+        toggleCompleted,
+        reminderId
     };
-  };
+};
 
 
 
@@ -51,7 +39,6 @@ const createProject = (name) => {
 
     return { 
         addTask,
-        createProject,
         projectName,
         task
     };
@@ -74,6 +61,7 @@ projectsContainer[0].task[0].reminderTitle = "Test Reminder"
 projectsContainer[0].task[0].reminderDueDate = "12-22-23"
 projectsContainer[0].task[0].reminderPriority = "high"
 
+renderProjectList()
 renderRemindersList()
 
 

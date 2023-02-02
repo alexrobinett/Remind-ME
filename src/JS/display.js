@@ -113,7 +113,7 @@ function displayProjectTitle(project){
 }
 
 
-function displayProjectList(project){
+function displayProject(projectName){
     const projectListContainer = document.querySelector(".project-list-ul")
 
     const listItem = document.createElement("li");
@@ -124,7 +124,7 @@ function displayProjectList(project){
     listImg.src = "/src/icons/format-list-bulleted.svg"
 
     const projectTitleHolder = document.createElement("span")
-    projectTitleHolder.textContent = `${project}`
+    projectTitleHolder.textContent = `${projectName}`
 
     listItem.appendChild(listImg)
     listItem.appendChild(projectTitleHolder)
@@ -132,6 +132,11 @@ function displayProjectList(project){
     projectListContainer.appendChild(listItem)
 }
 
+function clearProjectList(){
+    const projectContainer = document.querySelector(".project-list-ul")
+
+    projectContainer.innerHTML = ""
+}
 
 
 
@@ -146,12 +151,22 @@ function clearReminderList(){
 
 
 
+function renderProjectList(){
+    for(let i = 0; i < projectsContainer.length; i++){
+        displayProject(projectsContainer[i].projectName)
+    }
+    
+}
+
+
+
 
 function renderRemindersList(){
     for (let i = 0; i < projectsContainer[0].task.length; i++){
-        displayReminders(projectsContainer[0].task[i].reminderTitle, projectsContainer[0].task[i].reminderDescription, projectsContainer[0].task[i].reminderDueDate, projectsContainer[0].task[i].reminderPriority, projectsContainer[0].task[i].isComplete)
+        displayReminders(projectsContainer[0].task[i].reminderTitle, projectsContainer[0].task[i].reminderDescription, projectsContainer[0].task[i].reminderDueDate, projectsContainer[0].task[i].reminderPriority, projectsContainer[0].task[i].isComplete, projectsContainer[0].task[i].reminderId)
     }
 }
 
 
-export{displayReminders,displayProjectTitle,displayProjectList,renderRemindersList,clearReminderList}
+
+export{displayReminders, displayProjectTitle, displayProject, renderRemindersList, clearReminderList, clearProjectList, renderProjectList}
