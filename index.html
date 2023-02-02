@@ -81,7 +81,6 @@
             </div>
             <div class="project-completed">
                 <h1>Completed</h1>
-                <button>Remove</button>
             </div>
             <div class="reminder-container-completed">
                 <div class="reminder completed">
@@ -107,34 +106,25 @@
                   <div class="item">
                     <p>Title</p>
                     <div class="name-item">
-                      <input type="text" name="name" placeholder="Remind" />
+                      <input id="reminder-title" type="text" name="name" placeholder="Remind" />
                     </div>
                     <div class="item">
                         <p>Description</p>
-                    <textarea name="" id="" cols="" rows=""></textarea>
+                        <input id="reminder-description" type="text" name="" id="" cols="" rows="">
                     </div>
                     <div class="item">
                         <p>Priority</p>
-                        <select>
-                            <option value="">Priority</option>
-                            <option value="1">low</option>
-                            <option value="2">medium</option>
-                            <option value="3">high</option>
-                        </select>
-                    </div>
-                    <div class="item">
-                        <p>project</p>
-                        <select>
-                            <option value="">inbox</option>
+                        <select  id="reminder-priority">
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
                         </select>
                     </div>
                   </div>
                   <div class="item">
                     <p>Due Date</p>
-                    <input type="date" name="bdate" />
+                    <input id="reminder-due-date" type="date" name="bdate" />
                     <i class="fas fa-calendar-alt"></i>
-                  </div>
-                  <div class="item">
                   </div>
                   <div class="btn-block">
                     <button id="create-reminder" type="button">Create</button>
@@ -154,31 +144,26 @@
                   <div class="item">
                     <p>Title</p>
                     <div class="name-item">
-                      <input type="text" name="name" placeholder="Remind" />
+                    <input id="reminder-title-update" type="text" name="name" placeholder="Remind" />
+                    </div>
+                    <div class="item">
+                        <p>Description</p>
+                        <input type="text" name="" id="" cols="" rows="">
                     </div>
                     <div class="item">
                         <p>Priority</p>
-                        <select>
+                        <select id="reminder-priorty-update">
                             <option value="">Priority</option>
                             <option value="1">low</option>
                             <option value="2">medium</option>
                             <option value="3">high</option>
                         </select>
                     </div>
-                    <div class="item">
-                        <p>project</p>
-                        <select>
-                            <option value="">inbox</option>
-                        </select>
-                    </div>
                   </div>
-                  <div class="item">
                   <div class="item">
                     <p>Due Date</p>
-                    <input type="date" name="bdate" />
+                    <input id="reminder-due-date-update" type="date" name="duedate" />
                     <i class="fas fa-calendar-alt"></i>
-                  </div>
-                  <div class="item">
                   </div>
                   <div class="btn-block">
                     <button id="update-reminder" type="button">Create</button>
