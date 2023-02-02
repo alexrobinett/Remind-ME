@@ -18,40 +18,6 @@ function removeDisplay(element){
 
 
 function addListeners(){
-    const addReminderBtn = document.querySelector(".add-reminder")
-    const inputForm = document.querySelector(".modal")
-    const updateForm = document.querySelector(".modal-update")
-    const closeReminderBtn = document.querySelectorAll(".close-button")
-    const editReminderBtn = document.querySelectorAll(".edit-btn")
-    const createReminderBtn = document.querySelector("#create-reminder")
-    const createProjectBtn = document.querySelector("#add-project")
-    const toggleCompleted = document.querySelectorAll(".circle")
-    const deleteReminderBtn = document.querySelectorAll(".delete-btn")
-    
-    addReminderBtn.addEventListener("click", function toggleModal(e){
-        inputForm.classList.remove("hidden")
-    });
-    
-    closeReminderBtn.forEach( function (element) {
-      element.addEventListener("click", function() {
-        closeModal(element)
-      })
-    });
-   
-    createReminderBtn.addEventListener("click",(e, project = projectsContainer[0]) => {    
-        project.addTask()
-        clearReminderList()
-        renderRemindersList()
-        inputForm.classList.add("hidden")
-        addListeners()
-        console.log("button clicked")
-   });
-
-   createProjectBtn.addEventListener("click",(e) => {    
-    window.projectsContainer = createProject(document.querySelector("#project-name").value)
-    console.log("button clicked")
-});
-   
   
    deleteReminderBtn.forEach( function (i, index, ) {
     i.setAttribute("data-task", index);
@@ -77,6 +43,41 @@ function addListeners(){
     //   });
   
 }
+
+
+const addReminderBtn = document.querySelector(".add-reminder")
+const inputForm = document.querySelector(".modal")
+const updateForm = document.querySelector(".modal-update")
+const closeReminderBtn = document.querySelectorAll(".close-button")
+const editReminderBtn = document.querySelectorAll(".edit-btn")
+const createReminderBtn = document.querySelector("#create-reminder")
+const createProjectBtn = document.querySelector("#add-project")
+const toggleCompleted = document.querySelectorAll(".circle")
+const deleteReminderBtn = document.querySelectorAll(".delete-btn")
+
+addReminderBtn.addEventListener("click", function toggleModal(e){
+    inputForm.classList.remove("hidden")
+});
+
+closeReminderBtn.forEach( function (element) {
+  element.addEventListener("click", function() {
+    closeModal(element)
+  })
+});
+
+createReminderBtn.addEventListener("click",(e, project = projectsContainer[0]) => {    
+    project.addTask()
+    clearReminderList()
+    renderRemindersList()
+    inputForm.classList.add("hidden")
+    addListeners()
+    console.log("button clicked")
+});
+
+createProjectBtn.addEventListener("click",(e) => {    
+window.projectsContainer = createProject(document.querySelector("#project-name").value)
+console.log("button clicked")
+});
 
 
 

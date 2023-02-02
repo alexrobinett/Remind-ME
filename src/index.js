@@ -23,7 +23,6 @@ const APP = (function (){
 })();
 
 
-renderRemindersList()
 addListeners()
 
 

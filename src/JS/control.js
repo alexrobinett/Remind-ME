@@ -77,7 +77,7 @@ projectsContainer[0].task[0].reminderPriority = "high"
 renderRemindersList()
 
 
-  export{createReminder,createProject,projectsContainer}
+export{createReminder,createProject,projectsContainer}
   
 
 
