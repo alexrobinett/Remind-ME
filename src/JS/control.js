@@ -1,10 +1,13 @@
+import { renderRemindersList } from "./display";
 
-const createReminder = (isComplete = false) => {
+
+const createReminder = (isComplete = false, id) => {
     
     let reminderTitle = document.getElementById("reminder-title").value
     let reminderDescription = document.getElementById("reminder-description").value
     let reminderPriority = document.getElementById("reminder-priority").value
     let reminderDueDate = document.getElementById("reminder-due-date").value
+    let reminderId = Date.now()
 
     // test Text/
 
@@ -36,7 +39,7 @@ const createReminder = (isComplete = false) => {
 
 
 
-const Project = (name) => {
+const createProject = (name) => {
     let projectName = name
     let task = []
 
@@ -48,7 +51,7 @@ const Project = (name) => {
 
     return { 
         addTask,
-        Project,
+        createProject,
         projectName,
         task
     };
@@ -57,17 +60,24 @@ const Project = (name) => {
 
 
 
-const inbox = Project("inbox")
+let projectsContainer = []
 
-window.inbox = inbox
+window.projectsContainer = projectsContainer
 
-inbox.addTask()
-inbox.addTask()
-inbox.addTask()
+projectsContainer.push(createProject("inbox"))
 
-inbox.task[0].isComplete = true
+projectsContainer[0].addTask()
 
-  export{createReminder,Project, inbox}
+projectsContainer[0].task[0].isComplete
+projectsContainer[0].task[0].reminderDescription = "test description"
+projectsContainer[0].task[0].reminderTitle = "Test Reminder"
+projectsContainer[0].task[0].reminderDueDate = "12-22-23"
+projectsContainer[0].task[0].reminderPriority = "high"
+
+renderRemindersList()
+
+
+  export{createReminder,createProject,projectsContainer}
   
 
 

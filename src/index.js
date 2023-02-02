@@ -16,15 +16,14 @@ import { displayProjectList, displayProjectTitle, displayReminders, renderRemind
 const APP = (function (){
 
 
+  return{
+  }
+
 
 })();
 
 
-
-// let testReminder1 = createReminder(false)
-
-// window.testReminder1 = testReminder1
-
-
 renderRemindersList()
 addListeners()
+
+

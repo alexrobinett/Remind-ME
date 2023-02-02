@@ -1,6 +1,6 @@
-import { inbox } from "./control";
+import { projectsContainer } from "./control";
 
-function displayReminders(reminderTitle, reminderDescription, reminderDueDate, reminderPriority, isComplete){
+function displayReminders(reminderTitle, reminderDescription, reminderDueDate, reminderPriority, isComplete, reminderId){
 
     if(isComplete === true){
         const completedContainer = document.querySelector(".reminder-container-completed")
@@ -41,6 +41,7 @@ function displayReminders(reminderTitle, reminderDescription, reminderDueDate, r
         deleteBtnImg.classList.add("completed-icon");
         deleteBtnImg.src = "/src/icons/trash-can-outline.svg";
         deleteBtnImg.alt = "trash";
+        deleteBtnImg.setAttribute('data-task', reminderId);
 
         rightSideDiv.appendChild(dueDateSpan);
         rightSideDiv.appendChild(editBtnImg);
@@ -62,6 +63,7 @@ function displayReminders(reminderTitle, reminderDescription, reminderDueDate, r
         const circleDiv = document.createElement("div");
         circleDiv.classList.add("circle");
         circleDiv.classList.add(`${reminderPriority}`);
+        circleDiv.setAttribute('data-task', reminderId)
 
         const taskSpan = document.createElement("span");
         taskSpan.classList.add("task");
@@ -87,6 +89,8 @@ function displayReminders(reminderTitle, reminderDescription, reminderDueDate, r
         deleteBtnImg.classList.add("delete-btn");
         deleteBtnImg.src = "/src/icons/trash-can-outline.svg";
         deleteBtnImg.alt = "trash";
+        deleteBtnImg.setAttribute('data-task', reminderId);
+
 
     
         rightSideDiv.appendChild(dueDateSpan);
@@ -128,6 +132,9 @@ function displayProjectList(project){
     projectListContainer.appendChild(listItem)
 }
 
+
+
+
 function clearReminderList(){
     const reminderContainer = document.querySelector(".reminder-container")
     const completedContainer = document.querySelector(".reminder-container-completed")
@@ -137,9 +144,12 @@ function clearReminderList(){
 }
 
 
+
+
+
 function renderRemindersList(){
-    for (let i = 0; i < inbox.task.length; i++){
-        displayReminders(inbox.task[i].reminderTitle,inbox.task[i].reminderDescription, inbox.task[i].reminderDueDate,inbox.task[i].reminderPriority, inbox.task[i].isComplete)
+    for (let i = 0; i < projectsContainer[0].task.length; i++){
+        displayReminders(projectsContainer[0].task[i].reminderTitle, projectsContainer[0].task[i].reminderDescription, projectsContainer[0].task[i].reminderDueDate, projectsContainer[0].task[i].reminderPriority, projectsContainer[0].task[i].isComplete)
     }
 }
 
