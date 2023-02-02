@@ -1,20 +1,30 @@
-import addListeners from './JS/buttons'
-import { createReminder } from './JS/control'
-import { displayProjectList, displayProjectTitle, displayReminders } from './JS/display'
+import {addListeners} from './JS/buttons.js'
+import { createReminder, Project } from './JS/control'
+import { displayProjectList, displayProjectTitle, displayReminders, renderRemindersList } from './JS/display'
 
-window.displayReminders = displayReminders
-
-let testReminder1 = createReminder("feed keni", "give keni dog food", "11/12/23", "high", "inbox", false)
-
-window.testReminder1 = testReminder1
-
-let inbox = []
-
-window.inbox = inbox
-
-window.displayProjectTitle = displayProjectTitle
-
-window.displayProjectList = displayProjectList
+// window.displayReminders = displayReminders
 
 
+
+// window.inbox = inbox
+
+// window.displayProjectTitle = displayProjectTitle
+
+// window.displayProjectList = displayProjectList
+
+
+const APP = (function (){
+
+
+
+})();
+
+
+
+// let testReminder1 = createReminder(false)
+
+// window.testReminder1 = testReminder1
+
+
+renderRemindersList()
 addListeners()

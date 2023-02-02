@@ -1,4 +1,6 @@
-function displayReminders(name, description, dueDate, priority, isComplete){
+import { inbox } from "./control";
+
+function displayReminders(reminderTitle, reminderDescription, reminderDueDate, reminderPriority, isComplete){
 
     if(isComplete === true){
         const completedContainer = document.querySelector(".reminder-container-completed")
@@ -13,12 +15,12 @@ function displayReminders(name, description, dueDate, priority, isComplete){
         const taskSpan = document.createElement("span");
         taskSpan.classList.add("task");
         taskSpan.classList.add("completed");
-        taskSpan.textContent = `${name}`;
+        taskSpan.textContent = `${reminderTitle}`;
 
         const descriptionSpan = document.createElement("span");
         descriptionSpan.classList.add("description");
         descriptionSpan.classList.add("completed");
-        descriptionSpan.textContent = `${description}`;
+        descriptionSpan.textContent = `${reminderDescription}`;
 
         const rightSideDiv = document.createElement("div");
         rightSideDiv.classList.add("right-side");
@@ -26,7 +28,7 @@ function displayReminders(name, description, dueDate, priority, isComplete){
         const dueDateSpan = document.createElement("span");
         dueDateSpan.classList.add("due-date");
         dueDateSpan.classList.add("completed");
-        dueDateSpan.textContent = `${dueDate}`;
+        dueDateSpan.textContent = `${reminderDueDate}`;
 
         const editBtnImg = document.createElement("img");
         editBtnImg.classList.add("edit");
@@ -59,22 +61,22 @@ function displayReminders(name, description, dueDate, priority, isComplete){
 
         const circleDiv = document.createElement("div");
         circleDiv.classList.add("circle");
-        circleDiv.classList.add(`${priority}`);
+        circleDiv.classList.add(`${reminderPriority}`);
 
         const taskSpan = document.createElement("span");
         taskSpan.classList.add("task");
-        taskSpan.textContent = `${name}`;
+        taskSpan.textContent = `${reminderTitle}`;
 
         const descriptionSpan = document.createElement("span");
         descriptionSpan.classList.add("description");
-        descriptionSpan.textContent = `${description}`;
+        descriptionSpan.textContent = `${reminderDescription}`;
 
         const rightSideDiv = document.createElement("div");
         rightSideDiv.classList.add("right-side");
 
         const dueDateSpan = document.createElement("span");
         dueDateSpan.classList.add("due-date");
-        dueDateSpan.textContent = `${dueDate}`;
+        dueDateSpan.textContent = `${reminderDueDate}`;
 
         const editBtnImg = document.createElement("img");
         editBtnImg.classList.add("edit-btn");
@@ -126,12 +128,20 @@ function displayProjectList(project){
     projectListContainer.appendChild(listItem)
 }
 
+function clearReminderList(){
+    const reminderContainer = document.querySelector(".reminder-container")
+    const completedContainer = document.querySelector(".reminder-container-completed")
+
+    completedContainer.innerHTML = ""
+    reminderContainer.innerHTML = ""
+}
 
 
+function renderRemindersList(){
+    for (let i = 0; i < inbox.task.length; i++){
+        displayReminders(inbox.task[i].reminderTitle,inbox.task[i].reminderDescription, inbox.task[i].reminderDueDate,inbox.task[i].reminderPriority, inbox.task[i].isComplete)
+    }
+}
 
 
-
-
-
-
-export{displayReminders,displayProjectTitle,displayProjectList}
+export{displayReminders,displayProjectTitle,displayProjectList,renderRemindersList,clearReminderList}

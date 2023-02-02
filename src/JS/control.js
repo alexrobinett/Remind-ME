@@ -1,5 +1,17 @@
-const createReminder = (name, description, dueDate, priority, project, isComplete) => {
-  
+
+const createReminder = (isComplete = false) => {
+    
+    let reminderTitle = document.getElementById("reminder-title").value
+    let reminderDescription = document.getElementById("reminder-description").value
+    let reminderPriority = document.getElementById("reminder-priority").value
+    let reminderDueDate = document.getElementById("reminder-due-date").value
+
+    // test Text/
+
+    // reminderDescription = "this is test test"
+    // reminderTitle = "Test Title 123"
+    // reminderPriority = "high"
+    // reminderDueDate = "11-22-33"
 
     function toggleCompleted(){
         if (this.isComplete == true){
@@ -8,47 +20,54 @@ const createReminder = (name, description, dueDate, priority, project, isComplet
         }else if (this.isComplete == false){
             this.isComplete = true
             console.log("toggled true")
-        }else console.log("error soemthing went wrong")
-    }
-
-    function addToProject(project){
-        project.push(this)
+        }else console.log("error something went wrong")
     }
 
     return {
-      name,
-      description,
-      dueDate,
-      priority,
-      project,
+      reminderTitle,
+      reminderDescription,
+      reminderDueDate,
+      reminderPriority,
       isComplete,
       createReminder,
       toggleCompleted,
-      addToProject
     };
   };
 
 
 
-const createProject = (name) => {
-    let notCompleted = []
-    let completed = []
+const Project = (name) => {
+    let projectName = name
+    let task = []
 
-    function pushToProjectList(projectlist){
-        projectlist.push(this)
+    function addTask(){
+        this.task.push(createReminder())
     }
 
+ 
+
     return { 
-        name,
-        completed,
-        notCompleted,
-        pushToProjectList
+        addTask,
+        Project,
+        projectName,
+        task
     };
 
   };
 
 
-  export{createReminder,createProject}
+
+const inbox = Project("inbox")
+
+window.inbox = inbox
+
+inbox.addTask()
+inbox.addTask()
+inbox.addTask()
+
+inbox.task[0].isComplete = true
+
+  export{createReminder,Project, inbox}
   
 
 
