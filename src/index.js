@@ -13,10 +13,8 @@ import { displayProjectList, displayProjectTitle, displayReminders, renderRemind
 // window.displayProjectList = displayProjectList
 
 
-let currentProjectIndex = 0
+
+
 
 
 addListeners()
-
-
-export{currentProjectIndex}

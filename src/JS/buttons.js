@@ -1,6 +1,6 @@
 import { createProject, projectsContainer, toggleCompleted, createReminder} from "./control"
 import { clearReminderList, renderRemindersList, displayProject, renderProjectList, clearProjectList, updateDisplayedProject, updateDisplayedReminders } from "./display"
-import { currentProjectIndex} from ".."
+
 
 // const createForm = document.querySelector("")
 
@@ -11,7 +11,7 @@ const closeReminderBtn = document.querySelectorAll(".close-button")
 const createReminderBtn = document.querySelector("#create-reminder")
 const createProjectBtn = document.querySelector("#add-project")
 
-
+let currentProjectIndex = 0
 
 function addListeners(){
 
@@ -39,10 +39,11 @@ function addListeners(){
             i.setAttribute("data-task", index);
             i.addEventListener("click", function () {
               let taskIndex = i.getAttribute("data-task");
-              let reminder = projectsContainer[0].task[taskIndex];
+              console.log(currentProjectIndex)
+              let reminder = projectsContainer[currentProjectIndex].task[taskIndex];
               reminder.toggleCompleted.call(reminder);
               clearReminderList()
-              renderRemindersList()
+              renderRemindersList(currentProjectIndex)
               addListeners()
             });
           });
@@ -57,10 +58,10 @@ function addListeners(){
               updateDisplayedReminders(projectIndex)
               currentProjectIndex = projectIndex
               addListeners()
+              
             });
           });
         
-    
 }
 
 
@@ -99,7 +100,7 @@ closeReminderBtn.forEach( function (element) {
 createReminderBtn.addEventListener("click",(e, project = projectsContainer[currentProjectIndex]) => {    
     clearReminderList()
     project.addTask()
-    renderRemindersList()
+    renderRemindersList(currentProjectIndex)
     inputForm.classList.add("hidden")
     addListeners()
 });
@@ -109,7 +110,8 @@ createReminderBtn.addEventListener("click",(e, project = projectsContainer[curre
 createProjectBtn.addEventListener("click",(e) => {    
     projectsContainer.push(createProject(document.querySelector("#project-name").value))
     clearProjectList()
-    renderProjectList()
+    console.log(currentProjectIndex)
+    renderProjectList(currentProjectIndex)
     addListeners()
 
 console.log("button clicked")
