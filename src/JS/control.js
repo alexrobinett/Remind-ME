@@ -1,4 +1,4 @@
-import { renderRemindersList, renderProjectList } from "./display";
+import { renderRemindersList, renderProjectList, displayProjectTitle } from "./display";
 import { addListeners } from "./buttons";
 
 
@@ -30,6 +30,7 @@ const createReminder = (isComplete = false, id) => {
 const createProject = (name) => {
     let projectName = name
     let task = []
+    const projectId = Date.now()
 
     function addTask(){
         this.task.push(createReminder())
@@ -40,11 +41,11 @@ const createProject = (name) => {
     return { 
         addTask,
         projectName,
-        task
+        task,
+        projectId
     };
 
   };
-
 
 
 let projectsContainer = []
@@ -61,8 +62,10 @@ projectsContainer[0].task[0].reminderTitle = "Test Reminder"
 projectsContainer[0].task[0].reminderDueDate = "12-22-23"
 projectsContainer[0].task[0].reminderPriority = "high"
 
-renderProjectList()
+
 renderRemindersList()
+displayProjectTitle()
+renderProjectList()
 
 
 export{createReminder,createProject,projectsContainer}
