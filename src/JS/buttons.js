@@ -25,7 +25,7 @@ function addListeners(){
         i.addEventListener("click", function() {
           removeDisplay(i)
           let taskIndex = i.getAttribute("data-task");
-          projectsContainer[0].task.splice(taskIndex, 1);
+          projectsContainer[currentProjectIndex].task.splice(taskIndex, 1);
         });
       });
       
