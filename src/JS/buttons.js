@@ -46,6 +46,7 @@ function addListeners(){
 
     
         toggleCompleted.forEach(function (i, index) {
+          if (!i.hasAttribute("data-listener")) {
             i.setAttribute("data-task", index);
             i.addEventListener("click", function () {
               let taskIndex = i.getAttribute("data-task");
@@ -57,9 +58,10 @@ function addListeners(){
               clearReminderList()
               renderRemindersList(currentProjectIndex)
               addListeners()
-
             });
-          });
+            i.setAttribute("data-listener", true);
+          }
+        });
 
 
         projectBtn.forEach(function (i, index) {
@@ -140,12 +142,17 @@ createReminderBtn.addEventListener("click",(e) => {
 // create project buttons
 
 createProjectBtn.addEventListener("click",(e) => {    
-    projectsContainer.push(createProject(document.querySelector("#project-name").value))
-    clearProjectList()
-    console.log(currentProjectIndex)
-    renderProjectList(currentProjectIndex)
-    addListeners()
-    storeProjects(projectsContainer)
+    const projectName = document.querySelector("#project-name").value
+    if(projectName == ""){
+      alert("project must have name")
+    }else if (projectName.length > 0){
+      projectsContainer.push(createProject(projectName))
+      clearProjectList()
+      console.log(currentProjectIndex)
+      renderProjectList(currentProjectIndex)
+      addListeners()
+      storeProjects(projectsContainer)
+    }
 
 console.log("button clicked")
 });
