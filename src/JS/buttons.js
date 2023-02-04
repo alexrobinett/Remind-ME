@@ -5,6 +5,7 @@ import '../style.css'
 // DOM Cache
 
 const addReminderBtn = document.querySelector(".add-reminder")
+const updateReminderBtn = document.querySelector("#update-reminder")
 const inputForm = document.querySelector(".modal")
 const updateForm = document.querySelector(".modal-update")
 const closeReminderBtn = document.querySelectorAll(".close-button")
@@ -30,11 +31,12 @@ function addListeners(){
         });
       });
       
-        editReminderBtn.forEach( function (i, index) {
-          i.addEventListener("click", function() {
-            updateForm.classList.toggle("hidden")
-            
-          })
+      editReminderBtn.forEach( function (i, index) {
+        i.addEventListener("click", function() {
+        updateForm.classList.toggle("hidden");
+        let selectedTask = projectsContainer[currentProjectIndex].task[index];
+        i.setAttribute("data-task", index);
+        })
         });
 
     
@@ -46,10 +48,11 @@ function addListeners(){
               let reminder = projectsContainer[currentProjectIndex].task[taskIndex];
               if (reminder && reminder.toggleCompleted) {
                reminder.toggleCompleted.call(reminder)}
+               storeProjects(projectsContainer)
               clearReminderList()
               renderRemindersList(currentProjectIndex)
               addListeners()
-              storeProjects(projectsContainer)
+
             });
           });
 
@@ -100,9 +103,16 @@ closeReminderBtn.forEach( function (element) {
 });
 
 
-createReminderBtn.addEventListener("click",(e, project = projectsContainer[currentProjectIndex]) => {    
+createReminderBtn.addEventListener("click",(e) => { 
+    const title = document.getElementById("reminder-title").value
+    const description = document.getElementById("reminder-description").value
+    const priority = document.getElementById("reminder-priority").value
+    const dueDate = document.getElementById("reminder-due-date").value
+    const project = projectsContainer[currentProjectIndex]
+
+    console.log(currentProjectIndex)
     clearReminderList()
-    project.addTask()
+    project.addTask(title, description, priority, dueDate)
     renderRemindersList(currentProjectIndex)
     inputForm.classList.add("hidden")
     addListeners()
@@ -125,6 +135,28 @@ console.log("button clicked")
 
 
 
+// updateReminderBtn.forEach( function (i, index) {
+//   i.addEventListener("click", function() {
+//   updateForm.classList.toggle("hidden")
+//   // Get the values from the update form
+// let updatedReminderTitle = document.getElementById("update-reminder-title").value;
+// let updatedReminderDescription = document.getElementById("update-reminder-description").value;
+// let updatedReminderPriority = document.getElementById("update-reminder-priority").value;
+// let updatedReminderDueDate = document.getElementById("update-reminder-due-date").value;
 
+// // Update the selected reminder
+// projectsContainer[currentProjectIndex].task[index].reminderTitle = updatedReminderTitle;
+// projectsContainer[currentProjectIndex].task[index].reminderDescription = updatedReminderDescription;
+// projectsContainer[currentProjectIndex].task[index].reminderPriority = updatedReminderPriority;
+// projectsContainer[currentProjectIndex].task[index].reminderDueDate = updatedReminderDueDate;
+// clearReminderList();
+// renderRemindersList(currentProjectIndex);
+// addListeners();
+// storeProjects(projectsContainer);
+
+  
+  
+// });
+// });
 
   export {addListeners}

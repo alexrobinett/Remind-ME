@@ -3,10 +3,6 @@ import { createReminder, Project, projectsContainer, getProjectsFromStore } from
 import { displayProjectList, displayProjectTitle, displayReminders, renderRemindersList } from './JS/display'
 
 import './style.css'
-import editBtn from './icons/text-box-edit.svg'
-import deleteBtn from './icons/trash-can-outline.svg'
-import inboxIcon from './icons/inbox.svg'
-import checklistIcon from './icons/format-list-bulleted.svg'
 
 
 // window.displayReminders = displayReminders
@@ -22,5 +18,3 @@ import checklistIcon from './icons/format-list-bulleted.svg'
 
 
 addListeners()
-
-export{editBtn ,deleteBtn, inboxIcon, checklistIcon}

@@ -2,11 +2,11 @@ import { renderRemindersList, renderProjectList, displayProjectTitle } from "./d
 import { addListeners } from "./buttons";
 import '../style.css'
 
-const createReminder = (isComplete = false) => {
-    let reminderTitle = document.getElementById("reminder-title").value
-    let reminderDescription = document.getElementById("reminder-description").value
-    let reminderPriority = document.getElementById("reminder-priority").value
-    let reminderDueDate = document.getElementById("reminder-due-date").value
+const createReminder = (reminder, description, priority, duedate, isComplete = false) => {
+    let reminderTitle = reminder
+    let reminderDescription = description
+    let reminderPriority = priority
+    let reminderDueDate = duedate
     let reminderId = Date.now()
 
     function toggleCompleted() {
@@ -32,8 +32,9 @@ const createProject = (name) => {
     let task = []
     const projectId = Date.now()
 
-    function addTask(){
-        this.task.push(createReminder())
+    function addTask(title, description, priority, dueDate) {
+        this.task.push(createReminder(title, description, priority, dueDate));
+        storeProjects(projectsContainer);
     }
 
  
@@ -48,52 +49,58 @@ const createProject = (name) => {
   };
 
 
+  let projectsContainer = retrieveProjects();
+  window.projectsContainer = projectsContainer;
+  
+  if (projectsContainer.length === 0) {
+      projectsContainer.push(createProject("Inbox"));
+      projectsContainer[0].addTask("Wash Clothes", "Separate Lights and Darks", "medium", "3-21-23");
+  }
+  
+  renderRemindersList()
+  displayProjectTitle()
+  renderProjectList()
+  addListeners()
+  storeProjects(projectsContainer)
+  
 
-
-    function storeProjects(projectList){
-        localStorage.setItem("list-of-projects", JSON.stringify(projectList))
-        console.log(JSON.stringify(projectList))
+  function storeProjects(projects) {
+    for (let i = 0; i < projects.length; i++) {
+        localStorage.setItem(`project_${i}`, JSON.stringify({
+            name: projects[i].projectName,
+            tasks: projects[i].task.map(task => ({
+                reminderTitle: task.reminderTitle,
+                reminderDescription: task.reminderDescription,
+                reminderPriority: task.reminderPriority,
+                reminderDueDate: task.reminderDueDate,
+                isComplete: task.isComplete
+            }))
+        }));
     }
-
-
-
-
-    function getProjectsFromStore(){
-    let retrievedProjects = []
-    retrievedProjects = JSON.parse(localStorage.getItem("list-of-projects"))
-    return retrievedProjects
-    }
-
-
-
-let projectsContainer = []
-
-
-if(getProjectsFromStore() === null){
-    projectsContainer.push(createProject("Inbox"))
-    projectsContainer[0].addTask()
-    projectsContainer[0].task[0].isComplete
-    projectsContainer[0].task[0].reminderDescription = "Wash Work Clothes"
-    projectsContainer[0].task[0].reminderTitle = "Separate Lights and Darks"
-    projectsContainer[0].task[0].reminderDueDate = "3-21-23"
-    projectsContainer[0].task[0].reminderPriority = "medium"
-    
-    renderRemindersList()
-    displayProjectTitle()
-    renderProjectList()
-    
-
-
-}else if (typeof getProjectsFromStore() === "object"){
-    projectsContainer = getProjectsFromStore()
-    console.log(projectsContainer[0])
-    renderRemindersList()
-    displayProjectTitle()
-    renderProjectList()
-   
 }
 
 
-export{createReminder,createProject, getProjectsFromStore, storeProjects, projectsContainer}
+  
+function retrieveProjects() {
+    let projectList = []
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i)
+      if (key.startsWith("project_")) {
+        let value = JSON.parse(localStorage.getItem(key))
+        projectList.push(createProject(value.name))
+        if (value.tasks) {
+          projectList[projectList.length - 1].task = value.tasks.map(
+            task => createReminder(task.reminderTitle, task.reminderDescription, task.reminderPriority, task.reminderDueDate, task.isComplete)
+          );
+        }
+      }
+    }
+    return projectList;
+  }
+  
+
+
+
+export{createReminder,createProject, retrieveProjects, storeProjects, projectsContainer}
   
 
