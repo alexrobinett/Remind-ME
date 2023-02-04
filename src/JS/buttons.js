@@ -1,5 +1,5 @@
 import { createProject, projectsContainer, toggleCompleted, createReminder, storeProjects} from "./control"
-import { clearReminderList, renderRemindersList, displayProject, renderProjectList, clearProjectList, updateDisplayedProject, updateDisplayedReminders } from "./display"
+import { clearReminderList, renderRemindersList, displayProject, renderProjectList, clearProjectList, updateDisplayedProject, updateDisplayedReminders, updateFormTextUpdate } from "./display"
 import '../style.css'
 
 // DOM Cache
@@ -13,6 +13,7 @@ const createReminderBtn = document.querySelector("#create-reminder")
 const createProjectBtn = document.querySelector("#add-project")
 
 let currentProjectIndex = 0
+let currentReminderIndex = 0
 
 function addListeners(){
 
@@ -36,6 +37,10 @@ function addListeners(){
         updateForm.classList.toggle("hidden");
         let selectedTask = projectsContainer[currentProjectIndex].task[index];
         i.setAttribute("data-task", index);
+        updateReminderIndex(index)
+        console.log(`This is the ${index}`)
+        updateFormTextUpdate()
+
         })
         });
 
@@ -64,13 +69,25 @@ function addListeners(){
               let project = projectsContainer[projectIndex].projectName;
               updateDisplayedProject(project , projectIndex)
               updateDisplayedReminders(projectIndex)
-              currentProjectIndex = projectIndex
+              updateProjectIndex(projectIndex)
               addListeners()
               
             });
           });
         
 }
+
+
+
+function updateReminderIndex(val = 0){
+    currentReminderIndex = val
+    console.log(`This is the index value at update reminder ${val}`)
+}
+
+function updateProjectIndex(val = 0){
+  currentProjectIndex = val
+}
+
 
 
 // Reminder input forms
@@ -135,28 +152,28 @@ console.log("button clicked")
 
 
 
-// updateReminderBtn.forEach( function (i, index) {
-//   i.addEventListener("click", function() {
-//   updateForm.classList.toggle("hidden")
-//   // Get the values from the update form
-// let updatedReminderTitle = document.getElementById("update-reminder-title").value;
-// let updatedReminderDescription = document.getElementById("update-reminder-description").value;
-// let updatedReminderPriority = document.getElementById("update-reminder-priority").value;
-// let updatedReminderDueDate = document.getElementById("update-reminder-due-date").value;
+updateReminderBtn.addEventListener("click", function() {
+  updateForm.classList.toggle("hidden")
+  currentReminderIndex
 
-// // Update the selected reminder
-// projectsContainer[currentProjectIndex].task[index].reminderTitle = updatedReminderTitle;
-// projectsContainer[currentProjectIndex].task[index].reminderDescription = updatedReminderDescription;
-// projectsContainer[currentProjectIndex].task[index].reminderPriority = updatedReminderPriority;
-// projectsContainer[currentProjectIndex].task[index].reminderDueDate = updatedReminderDueDate;
-// clearReminderList();
-// renderRemindersList(currentProjectIndex);
-// addListeners();
-// storeProjects(projectsContainer);
+let updatedReminderTitle = document.getElementById("reminder-title-update").value;
+let updatedReminderDescription = document.getElementById("reminder-description-update").value;
+let updatedReminderPriority = document.getElementById("reminder-priority-update").value;
+let updatedReminderDueDate = document.getElementById("reminder-due-date-update").value;
+
+
+
+projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderTitle = updatedReminderTitle;
+projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderDescription = updatedReminderDescription;
+projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderPriority = updatedReminderPriority;
+projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderDueDate = updatedReminderDueDate;
+clearReminderList();
+renderRemindersList(currentProjectIndex);
+addListeners();
+storeProjects(projectsContainer);
 
   
   
-// });
-// });
+});
 
-  export {addListeners}
+  export {addListeners, currentProjectIndex, currentReminderIndex}

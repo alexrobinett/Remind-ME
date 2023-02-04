@@ -1,10 +1,10 @@
 import { projectsContainer } from "./control";
+import { currentProjectIndex, currentReminderIndex } from "./buttons";
 import editBtn from '../icons/text-box-edit.svg'
 import deleteBtn from '../icons/trash-can-outline.svg'
 import inboxIcon from '../icons/inbox.svg'
 import checklistIcon from '../icons/format-list-bulleted.svg'
 import '../style.css'
-
 
 
 // DOM Element Creations
@@ -168,6 +168,30 @@ function clearReminderList(){
 
 
 
+function updateFormTextUpdate(){
+
+    console.log(`this is the reminder index inside update from function ${currentReminderIndex}`)
+    console.log( `this is the project index inside update from function ${currentProjectIndex}`)
+
+    const reminder =  projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderTitle
+    const description = projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderDescription
+    const priority = projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderPriority
+    const dueDate  = projectsContainer[currentProjectIndex].task[currentReminderIndex].reminderDueDate
+
+
+    let updatedReminderTitle = document.getElementById("reminder-title-update")
+    let updatedReminderDescription = document.getElementById("reminder-description-update")
+    let updatedReminderPriority = document.getElementById("reminder-priority-update")
+    let updatedReminderDueDate = document.getElementById("reminder-due-date-update")
+
+    updatedReminderTitle.value = reminder
+    updatedReminderDescription.value = description
+    updatedReminderPriority.value = priority
+    updatedReminderDueDate.value = dueDate
+}   
+
+
+
 
 // Render Functions
 
@@ -197,4 +221,4 @@ function updateDisplayedReminders(projectIndex){
 }
 
 
-export{displayReminders, displayProjectTitle, displayProject, renderRemindersList, clearReminderList, clearProjectList, renderProjectList, updateDisplayedProject,updateDisplayedReminders}
+export{displayReminders, displayProjectTitle, displayProject, renderRemindersList, clearReminderList, clearProjectList, renderProjectList, updateDisplayedProject,updateDisplayedReminders, updateFormTextUpdate}
