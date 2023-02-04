@@ -190,4 +190,5 @@ function updateDisplayedReminders(projectIndex){
 }
 window.displayProjectTitle = displayProjectTitle
 
+
 export{displayReminders, displayProjectTitle, displayProject, renderRemindersList, clearReminderList, clearProjectList, renderProjectList, updateDisplayedProject,updateDisplayedReminders}

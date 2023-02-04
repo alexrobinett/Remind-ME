@@ -1,8 +1,8 @@
-import { createProject, projectsContainer, toggleCompleted, createReminder} from "./control"
+import { createProject, projectsContainer, toggleCompleted, createReminder, storeProjects} from "./control"
 import { clearReminderList, renderRemindersList, displayProject, renderProjectList, clearProjectList, updateDisplayedProject, updateDisplayedReminders } from "./display"
 
 
-// const createForm = document.querySelector("")
+// DOM Cache
 
 const addReminderBtn = document.querySelector(".add-reminder")
 const inputForm = document.querySelector(".modal")
@@ -26,6 +26,7 @@ function addListeners(){
           removeDisplay(i)
           let taskIndex = i.getAttribute("data-task");
           projectsContainer[currentProjectIndex].task.splice(taskIndex, 1);
+         storeProjects(projectsContainer)
         });
       });
       
@@ -41,10 +42,12 @@ function addListeners(){
               let taskIndex = i.getAttribute("data-task");
               console.log(currentProjectIndex)
               let reminder = projectsContainer[currentProjectIndex].task[taskIndex];
-              reminder.toggleCompleted.call(reminder);
+              if (reminder && reminder.toggleCompleted) {
+               reminder.toggleCompleted.call(reminder)}
               clearReminderList()
               renderRemindersList(currentProjectIndex)
               addListeners()
+              storeProjects(projectsContainer)
             });
           });
 
@@ -65,7 +68,7 @@ function addListeners(){
 }
 
 
-
+// Reminder input forms
 
 function closeModal(element){
       element.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("hidden")
@@ -88,13 +91,11 @@ addReminderBtn.addEventListener("click", function toggleModal(e){
 });
 
 
-
 closeReminderBtn.forEach( function (element) {
   element.addEventListener("click", function() {
     closeModal(element)
   })
 });
-
 
 
 createReminderBtn.addEventListener("click",(e, project = projectsContainer[currentProjectIndex]) => {    
@@ -103,9 +104,11 @@ createReminderBtn.addEventListener("click",(e, project = projectsContainer[curre
     renderRemindersList(currentProjectIndex)
     inputForm.classList.add("hidden")
     addListeners()
+    storeProjects(projectsContainer)
 });
 
 
+// create project buttons
 
 createProjectBtn.addEventListener("click",(e) => {    
     projectsContainer.push(createProject(document.querySelector("#project-name").value))
@@ -113,6 +116,7 @@ createProjectBtn.addEventListener("click",(e) => {
     console.log(currentProjectIndex)
     renderProjectList(currentProjectIndex)
     addListeners()
+    storeProjects(projectsContainer)
 
 console.log("button clicked")
 });

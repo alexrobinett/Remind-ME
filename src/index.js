@@ -1,5 +1,5 @@
 import {addListeners} from './JS/buttons.js'
-import { createReminder, Project, projectsContainer } from './JS/control'
+import { createReminder, Project, projectsContainer, getProjectsFromStore } from './JS/control'
 import { displayProjectList, displayProjectTitle, displayReminders, renderRemindersList } from './JS/display'
 
 // window.displayReminders = displayReminders
@@ -11,9 +11,6 @@ import { displayProjectList, displayProjectTitle, displayReminders, renderRemind
 // window.displayProjectTitle = displayProjectTitle
 
 // window.displayProjectList = displayProjectList
-
-
-
 
 
 

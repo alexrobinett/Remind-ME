@@ -48,27 +48,50 @@ const createProject = (name) => {
   };
 
 
+
+
+    function storeProjects(projectList){
+        localStorage.setItem("list-of-projects", JSON.stringify(projectList))
+        console.log(JSON.stringify(projectList))
+    }
+
+
+
+
+    function getProjectsFromStore(){
+    let retrievedProjects = []
+       retrievedProjects = JSON.parse(localStorage.getItem("list-of-projects"))
+       console.log(retrievedProjects)
+       return retrievedProjects
+    }
+
+
+
 let projectsContainer = []
 
+if(getProjectsFromStore() === null){
+    projectsContainer.push(createProject("Inbox"))
+
+    projectsContainer[0].addTask()
+    
+    projectsContainer[0].task[0].isComplete
+    projectsContainer[0].task[0].reminderDescription = "test description"
+    projectsContainer[0].task[0].reminderTitle = "Test Reminder"
+    projectsContainer[0].task[0].reminderDueDate = "12-22-23"
+    projectsContainer[0].task[0].reminderPriority = "high"
+    
+}else projectsContainer === getProjectsFromStore()
+
+
 window.projectsContainer = projectsContainer
-
-projectsContainer.push(createProject("inbox"))
-
-projectsContainer[0].addTask()
-
-projectsContainer[0].task[0].isComplete
-projectsContainer[0].task[0].reminderDescription = "test description"
-projectsContainer[0].task[0].reminderTitle = "Test Reminder"
-projectsContainer[0].task[0].reminderDueDate = "12-22-23"
-projectsContainer[0].task[0].reminderPriority = "high"
-
 
 renderRemindersList()
 displayProjectTitle()
 renderProjectList()
 
 
-export{createReminder,createProject,projectsContainer}
+
+export{createReminder,createProject, getProjectsFromStore, storeProjects, projectsContainer}
   
 
 
