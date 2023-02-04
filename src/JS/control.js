@@ -62,41 +62,51 @@ const createProject = (name) => {
   renderProjectList()
   addListeners()
   storeProjects(projectsContainer)
-  
-
-  function storeProjects(projects) {
-    for (let i = 0; i < projects.length; i++) {
-        localStorage.setItem(`project_${i}`, JSON.stringify({
-            name: projects[i].projectName,
-            tasks: projects[i].task.map(task => ({
-                reminderTitle: task.reminderTitle,
-                reminderDescription: task.reminderDescription,
-                reminderPriority: task.reminderPriority,
-                reminderDueDate: task.reminderDueDate,
-                isComplete: task.isComplete
-            }))
-        }));
-    }
-}
 
 
   
-function retrieveProjects() {
-    let projectList = []
-    for (let i = 0; i < localStorage.length; i++) {
-      let key = localStorage.key(i)
-      if (key.startsWith("project_")) {
-        let value = JSON.parse(localStorage.getItem(key))
-        projectList.push(createProject(value.name))
-        if (value.tasks) {
-          projectList[projectList.length - 1].task = value.tasks.map(
-            task => createReminder(task.reminderTitle, task.reminderDescription, task.reminderPriority, task.reminderDueDate, task.isComplete)
-          );
+    function storeProjects(projects) {
+        localStorage.clear();
+        for (let i = 0; i < projects.length; i++) {
+            let key = `project_${i}`;
+            localStorage.setItem(key, JSON.stringify({
+                name: projects[i].projectName,
+                tasks: projects[i].task.map(task => ({
+                    reminderTitle: task.reminderTitle,
+                    reminderDescription: task.reminderDescription,
+                    reminderPriority: task.reminderPriority,
+                    reminderDueDate: task.reminderDueDate,
+                    isComplete: task.isComplete
+                }))
+            }));
         }
       }
-    }
-    return projectList;
-  }
+      
+  
+    function retrieveProjects() {
+      let projectList = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key.startsWith("project_")) {
+          let value = JSON.parse(localStorage.getItem(key));
+          projectList.push(createProject(value.name));
+          if (value.tasks) {
+            projectList[projectList.length - 1].task = value.tasks.map(
+              task => createReminder(
+                task.reminderTitle,
+                task.reminderDescription,
+                task.reminderPriority,
+                task.reminderDueDate,
+                task.isComplete
+              )
+            );
+          }
+        }
+      }
+      return projectList;
+}
+  
+  
   
 
 
