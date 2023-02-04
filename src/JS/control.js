@@ -72,10 +72,10 @@ if(getProjectsFromStore() === null){
     projectsContainer.push(createProject("Inbox"))
     projectsContainer[0].addTask()
     projectsContainer[0].task[0].isComplete
-    projectsContainer[0].task[0].reminderDescription = "test description"
-    projectsContainer[0].task[0].reminderTitle = "Test Reminder"
-    projectsContainer[0].task[0].reminderDueDate = "12-22-23"
-    projectsContainer[0].task[0].reminderPriority = "high"
+    projectsContainer[0].task[0].reminderDescription = "Wash Work Clothes"
+    projectsContainer[0].task[0].reminderTitle = "Separate Lights and Darks"
+    projectsContainer[0].task[0].reminderDueDate = "3-21-23"
+    projectsContainer[0].task[0].reminderPriority = "medium"
     
     renderRemindersList()
     displayProjectTitle()
