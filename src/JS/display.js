@@ -1,4 +1,5 @@
 import { projectsContainer } from "./control";
+import { inboxIcon, deleteBtn, editBtn, checklistIcon } from ".."
 
 // DOM Element Creations
 
@@ -35,13 +36,13 @@ function displayReminders(reminderTitle, reminderDescription, reminderDueDate, r
         const editBtnImg = document.createElement("img");
         editBtnImg.classList.add("edit");
         editBtnImg.classList.add("completed-icon");
-        editBtnImg.src = "/src/icons/text-box-edit.svg";
+        editBtnImg.src = editBtn;
         editBtnImg.alt = "edit";
 
         const deleteBtnImg = document.createElement("img");
         deleteBtnImg.classList.add("delete");
         deleteBtnImg.classList.add("completed-icon");
-        deleteBtnImg.src = "/src/icons/trash-can-outline.svg";
+        deleteBtnImg.src = deleteBtn;
         deleteBtnImg.alt = "trash";
         deleteBtnImg.setAttribute('data-task', reminderId);
 
@@ -84,12 +85,12 @@ function displayReminders(reminderTitle, reminderDescription, reminderDueDate, r
 
         const editBtnImg = document.createElement("img");
         editBtnImg.classList.add("edit-btn");
-        editBtnImg.src = "/src/icons/text-box-edit.svg";
+        editBtnImg.src = editBtn;
         editBtnImg.alt = "edit";
 
         const deleteBtnImg = document.createElement("img");
         deleteBtnImg.classList.add("delete-btn");
-        deleteBtnImg.src = "/src/icons/trash-can-outline.svg";
+        deleteBtnImg.src = deleteBtn;
         deleteBtnImg.alt = "trash";
         deleteBtnImg.setAttribute('data-task', reminderId);
 
@@ -119,7 +120,7 @@ function displayProject(projectName, projectId){
     listItem.setAttribute('data-project', projectId);
 
     const listImg = document.createElement("img")
-    listImg.src = "/src/icons/format-list-bulleted.svg"
+    listImg.src = checklistIcon 
 
     const projectTitleHolder = document.createElement("span")
     projectTitleHolder.textContent = `${projectName}`

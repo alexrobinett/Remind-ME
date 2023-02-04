@@ -14,8 +14,8 @@ const path = require('path');
         use: ['style-loader', 'css-loader'],
       },
       {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
 
     ],
