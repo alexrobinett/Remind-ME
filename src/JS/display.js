@@ -188,7 +188,6 @@ function updateDisplayedReminders(projectIndex){
     clearReminderList()
     renderRemindersList(projectIndex)
 }
-window.displayProjectTitle = displayProjectTitle
 
 
 export{displayReminders, displayProjectTitle, displayProject, renderRemindersList, clearReminderList, clearProjectList, renderProjectList, updateDisplayedProject,updateDisplayedReminders}

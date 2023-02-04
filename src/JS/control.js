@@ -1,8 +1,7 @@
 import { renderRemindersList, renderProjectList, displayProjectTitle } from "./display";
 import { addListeners } from "./buttons";
 
-
-const createReminder = (isComplete = false, id) => {
+const createReminder = (isComplete = false) => {
     let reminderTitle = document.getElementById("reminder-title").value
     let reminderDescription = document.getElementById("reminder-description").value
     let reminderPriority = document.getElementById("reminder-priority").value
@@ -60,38 +59,40 @@ const createProject = (name) => {
 
     function getProjectsFromStore(){
     let retrievedProjects = []
-       retrievedProjects = JSON.parse(localStorage.getItem("list-of-projects"))
-       console.log(retrievedProjects)
-       return retrievedProjects
+    retrievedProjects = JSON.parse(localStorage.getItem("list-of-projects"))
+    return retrievedProjects
     }
 
 
 
 let projectsContainer = []
 
+
 if(getProjectsFromStore() === null){
     projectsContainer.push(createProject("Inbox"))
-
     projectsContainer[0].addTask()
-    
     projectsContainer[0].task[0].isComplete
     projectsContainer[0].task[0].reminderDescription = "test description"
     projectsContainer[0].task[0].reminderTitle = "Test Reminder"
     projectsContainer[0].task[0].reminderDueDate = "12-22-23"
     projectsContainer[0].task[0].reminderPriority = "high"
     
-}else projectsContainer === getProjectsFromStore()
+    renderRemindersList()
+    displayProjectTitle()
+    renderProjectList()
+    
 
 
-window.projectsContainer = projectsContainer
-
-renderRemindersList()
-displayProjectTitle()
-renderProjectList()
-
+}else if (typeof getProjectsFromStore() === "object"){
+    projectsContainer = getProjectsFromStore()
+    console.log(projectsContainer[0])
+    renderRemindersList()
+    displayProjectTitle()
+    renderProjectList()
+   
+}
 
 
 export{createReminder,createProject, getProjectsFromStore, storeProjects, projectsContainer}
   
-
 
