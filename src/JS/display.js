@@ -1,5 +1,11 @@
 import { projectsContainer } from "./control";
-import { inboxIcon, deleteBtn, editBtn, checklistIcon } from ".."
+import editBtn from '../icons/text-box-edit.svg'
+import deleteBtn from '../icons/trash-can-outline.svg'
+import inboxIcon from '../icons/inbox.svg'
+import checklistIcon from '../icons/format-list-bulleted.svg'
+import '../style.css'
+
+
 
 // DOM Element Creations
 

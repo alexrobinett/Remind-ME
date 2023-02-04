@@ -1,5 +1,6 @@
 import { renderRemindersList, renderProjectList, displayProjectTitle } from "./display";
 import { addListeners } from "./buttons";
+import '../style.css'
 
 const createReminder = (isComplete = false) => {
     let reminderTitle = document.getElementById("reminder-title").value

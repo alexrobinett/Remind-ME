@@ -1,6 +1,6 @@
 import { createProject, projectsContainer, toggleCompleted, createReminder, storeProjects} from "./control"
 import { clearReminderList, renderRemindersList, displayProject, renderProjectList, clearProjectList, updateDisplayedProject, updateDisplayedReminders } from "./display"
-
+import '../style.css'
 
 // DOM Cache
 
@@ -30,11 +30,13 @@ function addListeners(){
         });
       });
       
-        editReminderBtn.forEach( function (i) {
+        editReminderBtn.forEach( function (i, index) {
           i.addEventListener("click", function() {
             updateForm.classList.toggle("hidden")
+            
           })
         });
+
     
         toggleCompleted.forEach(function (i, index) {
             i.setAttribute("data-task", index);
