@@ -3,47 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Remind Me App</title>
 </head>
 <body>
-    <header>
-        <section class="logo">
-            <div class="logo">
-                <span class="">REMIND ME</span>
-            </div>
-        </section> 
-    </header>
-    <aside>
-       <section class="projects-container">
-        <div class="projects">
-            <h2>Projects</h2>
+  <header>
+    <section class="logo">
+            <span class="">REMIND ME</span>
         </div>
-        <div class="projects bottom-line">
-            <input type="text" id="project-name" required>
-            <button id="add-project">+</button>
+    </section> 
+</header>
+<aside class="aside">
+   <section class="projects-container">
+    <div class="projects">
+        <h2>Projects</h2>
+    </div>
+    <div class="projects bottom-line">
+        <input type="text" id="project-name" required>
+        <button id="add-project">+</button>
+    </div>
+    <div class="project-list">
+        <ul class="project-list-ul">
+        </ul>
+    </div>
+   </section>
+</aside>
+<section class="main">
+    <div class="project-container">
+        <div class="project-title">
+            <h1 class="project-title-holder"></h1>
+            <button class="add-reminder">+ Add Reminder</button>
         </div>
-        <div class="project-list">
-            <ul class="project-list-ul">
-            </ul>
+        <div class="reminder-container">
+          
         </div>
-       </section>
-    </aside>
-    <section class="main">
-        <div class="project-container">
-            <div class="project-title">
-                <h1 class="project-title-holder"></h1>
-                <button class="add-reminder">+ Add Reminder</button>
-            </div>
-            <div class="reminder-container">
-              
-            </div>
-            <div class="project-completed">
-                <h1>Completed</h1>
-            </div>
-            <div class="reminder-container-completed">
+        <div class="project-completed">
+            <h1>Completed</h1>
         </div>
-    </section>
+        <div class="reminder-container-completed">
+    </div>
+    <div>
+      <button class="mobile-project-btn"><span>+</span></button>
+    </div>
+</section>
     <div class="modal hidden">
         <section class="modal-container">
             <div class="testbox">
