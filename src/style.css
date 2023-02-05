@@ -272,23 +272,23 @@ button:hover{
 
 .close-button{
     border: solid 2px rgba(233, 45, 24, 0.25);
-    background-color: #c8929277;
+    background-color: #c9b0b077;
     justify-self: end;
 }
 
 .high{
-    border: solid 3px rgba(233, 45, 24, 0.25);
-    background-color: #ad5e5e77;
+    border: solid 3px rgba(193, 26, 8, 0.25);
+    background-color: #cea9a977;
 }
 
 .medium{
-    border: solid 3px rgba(165, 163, 33, 0.25);
-    background-color: #adad5e77;
+    border: solid 3px rgba(211, 208, 20, 0.613);
+    background-color: #b2b27677;
 }
 
 .low{
     border: solid 3px rgba(33, 165, 33, 0.25);
-    background-color: #66ad5e77;
+    background-color: #83b97d77;
 }
 
 .completed{
@@ -530,7 +530,7 @@ button:hover {
 }
 
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 500px) {
     body {
     grid-template-columns: 100%;
     grid-template-rows: 1fr 8fr;
@@ -549,15 +549,21 @@ button:hover {
       }
     
       .reminder {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1.3fr 5fr;
         grid-template-rows: auto;
         height: 6rem;
       }
 
+      .circle{
+        align-self: center;
+        justify-self: center;
+        margin: 0px 5px 0px 10px;
+      }
     
       .task, .due-date {
         font-size: 2rem;
       }
+
       .modal, .modal-update {
         width: 100%;
       }
@@ -621,11 +627,18 @@ button:hover {
         border-bottom: 5px solid green;
     }
 
+    .edit-btn , .delete-btn {
+        filter: none;
+        width: 2.5rem;
+        /* border: 1px solid black;
+        border-radius: 3px; */
+    }
+
 }
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 468px) {
     aside.mobile-friendly {
         display: block;
         width: 100%;
