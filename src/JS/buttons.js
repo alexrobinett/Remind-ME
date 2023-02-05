@@ -11,6 +11,8 @@ const updateForm = document.querySelector(".modal-update")
 const closeReminderBtn = document.querySelectorAll(".close-button")
 const createReminderBtn = document.querySelector("#create-reminder")
 const createProjectBtn = document.querySelector("#add-project")
+const mobilePlusBtn = document.querySelector(".mobile-project-btn")
+const aside = document.querySelector("aside")
 
 let currentProjectIndex = 0
 let currentReminderIndex = 0
@@ -72,6 +74,7 @@ function addListeners(){
               updateDisplayedProject(project , projectIndex)
               updateDisplayedReminders(projectIndex)
               updateProjectIndex(projectIndex)
+              aside.classList.remove("mobile-friendly")
               addListeners()
               
             });
@@ -83,14 +86,18 @@ function addListeners(){
 
 function updateReminderIndex(val = 0){
     currentReminderIndex = val
-    console.log(`This is the index value at update reminder ${val}`)
 }
 
 function updateProjectIndex(val = 0){
   currentProjectIndex = val
 }
 
+mobilePlusBtn.addEventListener("click", toggleMobileBtn);
 
+
+function toggleMobileBtn(){
+  aside.classList.add("mobile-friendly")
+}
 
 // Reminder input forms
 
@@ -150,6 +157,7 @@ createProjectBtn.addEventListener("click",(e) => {
       clearProjectList()
       console.log(currentProjectIndex)
       renderProjectList(currentProjectIndex)
+      aside.classList.remove("mobile-friendly")
       addListeners()
       storeProjects(projectsContainer)
     }
