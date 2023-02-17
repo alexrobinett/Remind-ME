@@ -536,7 +536,7 @@ button:hover {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 568px) {
     body {
     grid-template-columns: 100%;
     grid-template-rows: 1fr 8fr;
@@ -658,7 +658,7 @@ button:hover {
 
 
 
-@media (max-width: 468px) {
+@media (max-width: 568px) {
     aside.mobile-friendly {
         display: grid;
         width: 100%;
