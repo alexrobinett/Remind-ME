@@ -197,9 +197,8 @@ function updateFormTextUpdate(){
 
 function renderProjectList(){
     for(let i = 0; i < projectsContainer.length; i++){
-    displayProject()
-      projectsContainer[i].projectName,
-      projectsContainer[i].projectId,
+    displayProject(projectsContainer[i].projectName,projectsContainer[i].projectId )
+      
     }   
 }
 
