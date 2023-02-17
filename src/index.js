@@ -1,13 +1,8 @@
-import {addListeners} from './JS/buttons.js'
-import { createReminder, Project, projectsContainer, getProjectsFromStore } from './JS/control'
-import { displayProjectList, displayProjectTitle, displayReminders, renderRemindersList } from './JS/display'
+import { addListeners } from './JS/buttons.js';
 
-import './style.css'
-
+import './style.css';
 
 // window.displayReminders = displayReminders
-
-
 
 // window.inbox = inbox
 
@@ -15,6 +10,4 @@ import './style.css'
 
 // window.displayProjectList = displayProjectList
 
-
-
-addListeners()
+addListeners();

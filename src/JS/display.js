@@ -142,8 +142,8 @@ function displayProject(projectName, projectId){
 
 
 function displayProjectTitle(projectIndex = 0){
-    const projectNameDisplayer= document.querySelector(".project-title-holder")
-    projectNameDisplayer.textContent = `${projectsContainer[projectIndex].projectName}`
+    const projectNameDisplayed= document.querySelector(".project-title-holder")
+    projectNameDisplayed.textContent = `${projectsContainer[projectIndex].projectName}`
 }
 
 
@@ -197,7 +197,9 @@ function updateFormTextUpdate(){
 
 function renderProjectList(){
     for(let i = 0; i < projectsContainer.length; i++){
-        displayProject(projectsContainer[i].projectName, projectsContainer[i].projectId)
+    displayProject()
+      projectsContainer[i].projectName,
+      projectsContainer[i].projectId,
     }   
 }
 
